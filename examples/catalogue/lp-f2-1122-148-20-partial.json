@@ -1,0 +1,147 @@
+{
+  "A": [
+    [
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          14,
+          1
+        ]
+      ],
+      [
+        [
+          19,
+          1
+        ]
+      ],
+      [
+        [
+          11,
+          1
+        ]
+      ],
+      [
+        [
+          26,
+          1
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          13,
+          1
+        ]
+      ],
+      [
+        [
+          2,
+          1
+        ]
+      ],
+      [
+        [
+          15,
+          1
+        ]
+      ],
+      [
+        [
+          21,
+          1
+        ]
+      ]
+    ]
+  ],
+  "check_basis": "raw",
+  "field": 2,
+  "name": "lp-f2-1122-148-20-partial",
+  "period": 33,
+  "provenance": {
+    "attribution": {
+      "instance": "III, Eq. (S74)",
+      "scope": "Published exponent array; distance certificate and partial frame audit supplied here.",
+      "url": "https://arxiv.org/abs/2609.39874"
+    },
+    "catalogue_sha256": "206d0b8eb70c5bc73c9748ff75a047c9b161a441a37953630659e0b6b9dfdf9d",
+    "commit": "04ad4795ad15cb89ee47b7868ff925c30b2fc731",
+    "note": "Input and physical witnesses only; prior lower bounds are not imported.",
+    "original_code_sha256": "1dfa2ba9e9d0f2d48e7ef225e7eefed4fee83b18340982e6fe41121d161bfa66",
+    "original_path": "comparisons/lp-f2-1122-148-20-partial/code.json",
+    "paper": "https://arxiv.org/abs/2610.06820",
+    "reported_distance": 20,
+    "repository": "https://github.com/yeon-lee/public-regular-logical-frames"
+  },
+  "schema": "cssdist.lp.v1",
+  "witnesses": {
+    "X": [],
+    "Z": [
+      [
+        99,
+        112,
+        113,
+        118,
+        123,
+        131,
+        264,
+        270,
+        278,
+        283,
+        295,
+        296,
+        438,
+        455,
+        460,
+        603,
+        607,
+        765,
+        783,
+        785
+      ]
+    ]
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "cyclic_period": 1,
+  "hx": [
+    [
+      0,
+      4,
+      13,
+      24,
+      25
+    ],
+    [
+      1,
+      5,
+      12,
+      24,
+      25
+    ],
+    [
+      0,
+      2,
+      17,
+      26,
+      27
+    ],
+    [
+      1,
+      3,
+      16,
+      26,
+      27
+    ],
+    [
+      2,
+      4,
+      15,
+      28,
+      29
+    ],
+    [
+      3,
+      5,
+      14,
+      28,
+      29
+    ],
+    [
+      6,
+      10,
+      19,
+      26
+    ],
+    [
+      7,
+      11,
+      18,
+      29
+    ],
+    [
+      6,
+      8,
+      23,
+      28
+    ],
+    [
+      7,
+      9,
+      22,
+      25
+    ],
+    [
+      8,
+      10,
+      21,
+      24
+    ],
+    [
+      9,
+      11,
+      20,
+      27
+    ]
+  ],
+  "hz": [
+    [
+      0,
+      1,
+      10,
+      24,
+      26
+    ],
+    [
+      0,
+      1,
+      9,
+      25,
+      27
+    ],
+    [
+      2,
+      3,
+      6,
+      26,
+      28
+    ],
+    [
+      2,
+      3,
+      11,
+      27,
+      29
+    ],
+    [
+      4,
+      5,
+      8,
+      24,
+      28
+    ],
+    [
+      4,
+      5,
+      7,
+      25,
+      29
+    ],
+    [
+      12,
+      13,
+      22,
+      25
+    ],
+    [
+      12,
+      13,
+      21,
+      24
+    ],
+    [
+      14,
+      15,
+      18,
+      29
+    ],
+    [
+      14,
+      15,
+      23,
+      28
+    ],
+    [
+      16,
+      17,
+      20,
+      27
+    ],
+    [
+      16,
+      17,
+      19,
+      26
+    ]
+  ],
+  "lp_layout": {
+    "A_shape": [
+      1,
+      2
+    ],
+    "C_shape": [
+      1,
+      2
+    ],
+    "block_size": 6
+  },
+  "n": 30,
+  "name": "Non-Abelian S3 lifted product",
+  "provenance": {
+    "A": [
+      [
+        "1+r",
+        "s"
+      ]
+    ],
+    "C": [
+      [
+        "1+s",
+        "r"
+      ]
+    ],
+    "actions": "A entries use left multiplication. C entries use right multiplication.",
+    "checks": "H_X=[A_L tensor I | I tensor C_R^T], H_Z=[I tensor C_R | A_L^T tensor I]",
+    "group": "S3 = <r,s | r^3=s^2=1, srs=r^-1>",
+    "group_index": "r^a s^b has index 2*a+b",
+    "purpose": "Small correctness example for the physical LP layout interface."
+  },
+  "schema": "cssdist.code.v1",
+  "witnesses": {
+    "X": [
+      [
+        0,
+        1
+      ]
+    ],
+    "Z": [
+      [
+        0,
+        2,
+        4
+      ]
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+# Toy repetition-memory example; the BB research panel uses full extraction circuits.
+R 0 1 2
+X_ERROR(0.01) 0 1 2
+M 0 1 2
+DETECTOR rec[-3] rec[-2]
+DETECTOR rec[-2] rec[-1]
+OBSERVABLE_INCLUDE(0) rec[-3]

@@ -1,0 +1,65 @@
+{
+  "upstream_sha256": "e919e1830b88468c5d257c0119656576a7999f92743dfeccd389a967524b3d2c",
+  "source_commit": "fa77e3333d3ec44c79d8f914dd24c040d1da471b",
+  "sha256": {
+    "exact.cpp": "fbc6163168c247332e7bae2f2bf99d2b1fa6d4aa432bd3bd9b4934ec0b788249",
+    "common.hpp": "e2fe6046b8f6d907cf4e8b0f15f358a231f46520237f7f94704221c811208960",
+    "X.model": "81c55df8d49dbfc7f6f81393043ee3b3fadcc5398d0490d0b3c15098dadd035e",
+    "Z.model": "3dfdca1d171f5df472f0f531aa8edf0fe1f12293de2ba4911da7c5351ad766ea",
+    "X.relations": "594efc9aba2e59f0748fc05a6880e35ba58c0787221b603e0421b7b6150d0517",
+    "Z.relations": "2eb4e8575d0eed0372d657303e5fbedfd7089b9bb089a8b7a406aba3f600096f"
+  },
+  "host": "AMD EPYC 7713",
+  "compiler_flags": [
+    "-std=c++17",
+    "-O3"
+  ],
+  "witness_replay": {
+    "X-relations-10.jsonl": {
+      "weight": 10,
+      "gate_indices": [
+        648,
+        864,
+        719,
+        758,
+        869,
+        871,
+        885,
+        894,
+        895,
+        917
+      ],
+      "logical_bits": [
+        2,
+        4,
+        8,
+        10
+      ],
+      "raw_measurement_flips": 0
+    },
+    "Z-relations-10.jsonl": {
+      "weight": 10,
+      "gate_indices": [
+        72,
+        78,
+        135,
+        411,
+        447,
+        463,
+        485,
+        809,
+        1057,
+        1058
+      ],
+      "logical_bits": [
+        0,
+        1,
+        3,
+        5,
+        8,
+        10
+      ],
+      "raw_measurement_flips": 0
+    }
+  }
+}

@@ -1,0 +1,196 @@
+Circuit fault distance
+======================
+
+The circuit search finds the smallest number of fault mechanisms that trigger
+no detectors and flip at least one specified logical observable. The binary
+vector e records which mechanisms are present, each contributing one to the
+fault count. The conditions are De=0 and Oe!=0, where D records detector flips
+and O records flips of the logical observables. A completed exclusion through W
+gives d_fault >= W+1. A witness gives only an upper bound. A timeout gives no new
+bound at its requested cutoff. These are rerunnable exhaustive execution
+records, not formal independently checkable proof objects for every branch.
+
+This is one detector/observable problem. There is no automatic X/Z-sector split,
+and the minimum distance of an auxiliary CSS code is NOT the desired answer.
+An optional certified sector projection is available through reduce-circuit;
+it checks all fault columns while retaining every observable bit. See
+CIRCUIT_REDUCTIONS.txt for its proof, commands, and local replacement experiments.
+
+Install and use
+---------------
+Install the optional Stim importer with `python -m pip install '.[circuit]'`. JSON inputs
+and the native search itself have no Stim dependency. A C++17 compiler is needed.
+
+  qedist import-circuit memory.stim --output memory.json
+  qedist inspect-circuit memory.json
+  qedist certify-circuit memory.json --cutoff 3 --seconds 30 --out run-w3
+  qedist audit-circuit run-w3
+
+The included examples/circuit_three_fault_chain.json is a small smoke test:
+exclude through cutoff 2 to certify distance three against its supplied witness.
+The corresponding .stim file tests the importer. These toy examples are distinct
+from the published BB extraction circuits used in the research comparison.
+
+An imported model initially has no supplied witness. An exclusion through W
+then gives a lower bound of W+1, while exact_distance stays null. A search that
+finds a witness reports WITNESS_FOUND and returns exit code 10, as does its audit.
+Save the audited support in the model's witnesses field, then exclude through
+one less than its weight to seek a matching lower bound. The README section
+"Exact distance from a Stim circuit" gives the complete runnable example.
+Its final result has status EXCLUDED and exact_distance 3.
+
+For a DEM use a .dem extension or `--format dem`. Import rejects unsupported
+conversions rather than enabling approximate_disjoint_errors. One error
+instruction is one fault, including all targets across ^ separators. No
+hyperedges are removed or graphlike components counted as independent faults.
+Positive-probability effects are retained. Probabilities are metadata, not costs.
+
+Optionally search for combinations of faults with no detector or observable
+effect, called neutral relations.
+
+  qedist import-circuit memory.dem --neutral-pairs 200000 --max-neutrals 10000 \
+      --output memory-neutral.json
+
+This searches a bounded subset of shared-detector pairs for neutral relations
+of weight at most three. Source-local Pauli relations can also be supplied.
+Every row g is checked to satisfy Dg=Og=0. They need not span the full neutral
+kernel. Their absence/incompleteness affects speed, not soundness. The overlap
+pruning rule preserves a minimum logical fault; it does not enumerate all faults.
+
+Use --no-weighted-pruning and --no-neutral-pruning to disable each pruning rule
+and measure its effect. The "weighted" bound combines parity inequalities.
+Each fault still contributes one to the fault count.
+By default, the search considers each fault as a starting point (root).
+Window search verifies its coverage from the input. The fast recursive engine
+is selected when effective search depth is at most 512 and estimated base
+storage is at most 8 GiB. Effective depth is the smaller of the cutoff and the
+number of fault mechanisms. Larger searches select expanded storage automatically.
+Use --large-capacity to force expanded storage or --no-large-capacity to require
+the fast variant. Both variants use the same pruning rules. Expanded storage uses
+an input-sized, heap-backed search stack. Dimensions and cutoffs use signed
+32-bit integers. Effective depth is bounded by the number of mechanisms.
+The optional --memory-mib selects expanded storage and budgets live native
+vector allocations per worker. It conflicts with --no-large-capacity.
+Python input handling and other process overhead require additional memory.
+An allocation failure records an incomplete attempt with no lower-bound credit.
+
+JSON format
+-----------
+  {
+    "schema": "qedist.detector.v1",
+    "n_faults": 3,
+    "detector_rows": [[0,1], [1,2]],
+    "observable_rows": [[0]],
+    "neutral_rows": [],
+    "witnesses": [[0,1,2]],
+    "metadata": {"description": "three-fault logical chain"}
+  }
+
+Supports use zero-based, nonrepeated fault indices. Detector/observable rows
+may be dependent or empty; at least one observable row is required. Supplied
+witnesses are checked independently. Neutral rows must be nonempty. JSON inputs
+can be constructed with cssdist.DetectorModel.from_sparse(...). The Python
+runner is cssdist.circuit_run.certify_circuit(model, output, cutoff=..., ...).
+
+Physical interpretation
+-----------------------
+The default statement concerns the specified binary mechanism model and its
+annotated observable scope, not an arbitrary circuit-noise model, a decoder's
+failure exponent, or a logical error rate. For mutually exclusive outcomes at
+one location, one must justify the binary relaxation or retain admissibility.
+For full depolarizing Pauli outcome sets, closure under multiplication can
+establish minimum-count equivalence after checking fault-effect coverage.
+Restricted channels require their own argument. Circuit-level locality, gate
+scheduling, preparation and final measurements matter even for symmetric codes.
+
+Run records and timing
+----------------------
+Output directories must be new. Each includes input/configuration, sparse native
+matrices, frozen source and binary hashes, build identity, command, stdout/stderr,
+checked witnesses, result, and SHA256SUMS.json. The auditor does not execute
+archived code. It verifies identity, the command/configuration relationship,
+every witness, and the root coverage required by the selected search mode.
+
+Compilation is outside the time budget and recorded separately. The reported
+time includes preparation, native initialization and search, and independent
+verification of the result. Final evidence serialization and hashing are
+outside that interval. The
+completed_within_budget field separates within-budget comparisons from any
+valid result that arrived late. Historical CSS campaigns and profiles retain
+their original meanings; this new path does not rewrite them.
+
+Exhaustive window search
+------------------------
+For a model with 68 detector rows per extraction layer, run
+
+  qedist certify-circuit memory.json --cutoff 6 --window-search 68 --seconds 120 --out run-w6
+  qedist audit-circuit run-w6
+
+The argument to --window-search is the number of consecutive detector rows per
+layer. QEDist computes the window length. For interleaved detectors or uneven
+layers, use --detector-layers layers.json instead. Supply a JSON list of one
+nonnegative integer per detector row in the input model. Equal labels denote
+the same layer. Occupied labels are ranked in increasing order. The Python
+function certify_circuit accepts detectors_per_layer=68 or detector_layers=[...].
+Supply the layout of the model being searched, after any sector reduction.
+
+Take a minimum-weight undetected logical pattern and join faults that share
+a detector. If the graph were disconnected,
+each component would have zero detector parity and at least one component
+would have nonzero observable parity. That component would be a lighter logical
+pattern. A detector-free fault that flips an observable gives distance one.
+A fault with neither effect can be discarded.
+
+Let s be the largest difference between the first and last detector layers of
+one fault, measured on the complete input. In a connected pattern, the layer
+intervals of its faults form a connected union. Their total span is at most
+the sum of their spans. Thus a minimum logical pattern of weight at most W
+fits in at most sW+1 layers, including both endpoints. At each possible earliest
+layer, QEDist admits only faults wholly inside that window. Faults touching
+the earliest layer come first in the local ordering and supply all starting
+roots. Every neutral pruning relation used in a window is a complete source
+relation with all its faults present.
+
+To reuse a search, QEDist translates the detector layer indices and compares
+the multiset of complete fault signatures, including positions within each
+layer and every observable bit. A window can use an earlier representative
+if all of its signatures occur there with sufficient multiplicity. Such a map
+takes a minimum pattern to another source pattern of the same weight and
+logical action, with a root in the representative's first layer. Any window
+without a verified covering representative receives its own search. This also
+checks the initialization and readout boundaries.
+
+The translated pattern is a global minimum because it uses source faults and
+retains the original weight. Strict neutral-overlap pruning would remove it only if a
+lighter equivalent word existed. Every proper nonempty subset of this minimum
+has nonzero detector syndrome. A logical subset would be a lighter witness,
+and deleting a neutral subset would also leave a lighter witness. Consequently
+the native search can follow repairs of unsatisfied detectors from its first
+root until it reaches the full minimum.
+
+The seconds and node budgets apply to the whole run. A lower bound of W+1
+requires an exclusion on every required root in every representative. An
+unresolved representative gives INCOMPLETE. A positive search returns a witness
+in the original fault coordinates, verified on the full detector and observable
+matrices. An exact distance requires matching lower and upper bounds.
+
+The audit rebuilds coverage.json from input.json, reconstructs each restricted
+native matrix, and verifies the command, root range and completion count for
+each recorded execution. It checks every returned witness on the source model. A physical faulty-location
+interpretation still requires validation of the circuit noise model.
+
+In a paired cutoff-six run on each of the 136-qubit memory models, all 16
+earliest layers used one seven-layer representative with 5,848 fault columns.
+The ordinary and window searches both certified d_fault >= 7 at this cutoff.
+
+                Source roots    Window roots    Ordinary time    Window time
+  X memory            14,416             952          25.71 s         2.27 s
+  Z memory            14,416             952          24.26 s         2.19 s
+
+Times include preparation and search and exclude compilation and final evidence
+serialization. These measurements compare QEDist's two modes on the same input.
+
+Further reading
+---------------
+Detector/observable distance and circuit-distance algorithms: https://arxiv.org/abs/2603.22532
+Stim detector error model format: https://github.com/quantumlib/Stim/blob/main/doc/file_format_dem_detector_error_model.md

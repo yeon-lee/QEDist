@@ -1,0 +1,35 @@
+{
+  "profile": "css",
+  "source_path": "research/methods_sprint_20261008/residual_bounds/native_even_guard",
+  "source_sha256": {
+    "common.hpp": "d89eb574db637fcc428b491dccd44f4ba2061ca578b3ea077f73e53311b606ca",
+    "even_methods.inc": "8b9afa080de612320d3837e90524b176e0a3e828197f39be8363c82c320dac07",
+    "exact.cpp": "d4831f956884f1839accfccd000aee398fc823c4c94345479dcfa821d8b9451b",
+    "symmetry.hpp": "6077b730861a2a751cc35b66449c8d34adb67715d249321bf61384140f635f65"
+  },
+  "reference_experiment": "research/methods_sprint_20261008/combined/short_runs_v1",
+  "native_options": [
+    "fractional=2",
+    "repair-depth=8",
+    "even-repairs=4"
+  ],
+  "modifications_to_frozen_source": [
+    "Verify explicit qubit-permutation generators and search the minimum coordinate in each joint orbit.",
+    "Record all joint-orbit root representatives for independent coverage auditing."
+  ],
+  "scope": "Signed integer weighted-check lower bounds with satisfied-check repair cap four, minimum-availability check selection with overlap tie-breaking through weight eight, inherited packing and kernel parity. No automatic profile selection.",
+  "ancestry": "Developed from the author's regular-logical-frames search. The original implementation and historical benchmark sources are archived separately.",
+  "evidence_kind": "Source-bound completed exhaustive executions; not complete formal search-tree proof objects.",
+  "parent_source_sha256": {
+    "common.hpp": "d89eb574db637fcc428b491dccd44f4ba2061ca578b3ea077f73e53311b606ca",
+    "even_methods.inc": "2b38d728b2af897ff06e336b8926daab0ff90c6ecc8f48bd2e4cdda9da1c78e0",
+    "exact.cpp": "fb732b0dc9ab96cdcff087886678bf96ce275854f8f03562e7c31f39883771cd"
+  },
+  "proposed_additions": {
+    "default": true,
+    "native_default": false,
+    "native_option": "proposed-additions=on",
+    "reference": "main_v7, Appendix A.3; benchmarked as dual-child=on in the reproduction archive",
+    "rule": "For A <= sum c_q x_q and c_q <= D, reject adding v if A-c_v > D*(b-1). Parent decisions are retained across recursion; sibling exclusions and shard boundaries are preserved."
+  }
+}

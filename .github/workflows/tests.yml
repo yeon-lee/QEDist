@@ -1,0 +1,49 @@
+name: Package validation
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ['3.10', '3.12', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install and check packaged native sources
+        run: |
+          python -m pip install '.[circuit]'
+          python -m unittest discover -s tests -v
+      - name: Exercise installed commands outside the source directory
+        shell: bash
+        run: |
+          cd "$RUNNER_TEMP"
+          qedist --version
+          cssdist certify "$GITHUB_WORKSPACE/examples/steane.json" --cutoff 2 --profile css --out installed-run
+          cssdist audit installed-run
+          cssdist export installed-run --output evidence.tar.gz
+          cssdist audit-bundle evidence.tar.gz
+          qedist certify "$GITHUB_WORKSPACE/examples/steane.json" --cutoff 2 --no-proposed-additions --out opt-out-run
+          qedist certify "$GITHUB_WORKSPACE/examples/steane.json" --cutoff 2 --resume --out opt-out-run
+          qedist calibrate "$GITHUB_WORKSPACE/examples/steane.json" --cutoff 2 --samples 2 --out calibration
+          qedist audit-calibration calibration
+          qedist certify "$GITHUB_WORKSPACE/examples/independent_qc.json" --cutoff 3 --profile lp --workers 2 --shards 2 --out lp-blocks
+          qedist audit lp-blocks
+          qedist certify "$GITHUB_WORKSPACE/examples/nonabelian_lp.json" --cutoff 1 --profile lp --workers 2 --shards 2 --out nonabelian-lp
+          qedist audit nonabelian-lp
+          qedist export nonabelian-lp --output nonabelian-evidence.tar.gz
+          qedist audit-bundle nonabelian-evidence.tar.gz
+          qedist certify "$GITHUB_WORKSPACE/examples/symmetry/bb144.json" --cutoff 11 --proposed-additions --shards 2 --workers 2 --out product-run
+          qedist audit product-run
+          qedist export product-run --output product-evidence.tar.gz
+          qedist audit-bundle product-evidence.tar.gz
+          qedist import-circuit "$GITHUB_WORKSPACE/examples/circuit_three_fault_chain.stim" --output imported.json
+          qedist certify-circuit "$GITHUB_WORKSPACE/examples/circuit_three_fault_chain.json" --cutoff 2 --window-search 1 --out circuit-run
+          qedist export circuit-run --output circuit.tar.gz
+          qedist audit-bundle circuit.tar.gz

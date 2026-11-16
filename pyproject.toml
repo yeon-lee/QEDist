@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qedist"
+version = "0.1"
+description = "QEDist: exact distance certification for stabilizer codes and detector fault models"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Jong Yeon Lee"}]
+license = "MIT"
+license-files = ["LICENSE", "NOTICE.md"]
+dependencies = []
+
+[project.optional-dependencies]
+circuit = ["stim>=1.15"]
+
+[project.scripts]
+qedist = "cssdist.cli:main"
+cssdist = "cssdist.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["cssdist*"]
+
+[tool.setuptools.package-data]
+cssdist = ["LICENSE.txt", "native*/*.cpp", "native*/*.hpp", "native*/*.inc", "native*/*.json", "native*/*.txt",
+           "native*/fixed/*.cpp", "native*/fixed/*.hpp", "native*/fixed/*.inc", "native*/fixed/*.json"]
+
+"cssdist.benchmarks.bb144" = ["*.model", "*.json", "*.jsonl", "README.md"]

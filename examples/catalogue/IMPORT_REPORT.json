@@ -1,0 +1,47 @@
+{
+  "catalogue_sha256": "206d0b8eb70c5bc73c9748ff75a047c9b161a441a37953630659e0b6b9dfdf9d",
+  "records": [
+    {
+      "all_imported_witnesses_validated": true,
+      "code_sha256": "03dee41b244ab1d1962f9d61c3fd0aec6ebbba905d4e109e48b9395c72f538cc",
+      "id": "lp-f2-20-4-3",
+      "k": 4,
+      "n": 20,
+      "physical_check_spaces_match_original": true
+    },
+    {
+      "all_imported_witnesses_validated": true,
+      "code_sha256": "329e27264ab3795357ba477d7efc7169e47de45d7fb9951a1b81387222f3f13d",
+      "id": "lp-f2-320-64-10",
+      "k": 64,
+      "n": 320,
+      "physical_check_spaces_match_original": true
+    },
+    {
+      "all_imported_witnesses_validated": true,
+      "code_sha256": "f1d6fd733c8d9d0491dca98d948d4a7bd16cf75f2d2f6a0ca67aed925465203c",
+      "id": "lp-f4-476-56-14",
+      "k": 56,
+      "n": 476,
+      "physical_check_spaces_match_original": true
+    },
+    {
+      "all_imported_witnesses_validated": true,
+      "code_sha256": "53377ec91fdc3023cd2dc23f2b5869b68792ab574d276cd5573a790e7399ec69",
+      "id": "lp-f4-1088-128-22-w10-f22",
+      "k": 128,
+      "n": 1088,
+      "physical_check_spaces_match_original": true
+    },
+    {
+      "all_imported_witnesses_validated": true,
+      "code_sha256": "f0974322a8d6adf3c91525e90614a21ab8166d8435001ba6b5ce862cb09b22cc",
+      "id": "lp-f2-1122-148-20-partial",
+      "k": 148,
+      "n": 1122,
+      "physical_check_spaces_match_original": true
+    }
+  ],
+  "schema": "cssdist.import.v1",
+  "source_commit": "04ad4795ad15cb89ee47b7868ff925c30b2fc731"
+}

@@ -1,0 +1,8 @@
+{
+  "schema": "qedist.stabilizer.v1",
+  "name": "Five-qubit perfect code",
+  "n": 5,
+  "cyclic_period": 5,
+  "stabilizers": ["XZZXI", "IXZZX", "XIXZZ", "ZXIXZ"],
+  "witnesses": ["XXXXX"]
+}

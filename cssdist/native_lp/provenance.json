@@ -1,0 +1,39 @@
+{
+  "profile": "lp",
+  "parent_source_sha256": {
+    "common.hpp": "d89eb574db637fcc428b491dccd44f4ba2061ca578b3ea077f73e53311b606ca",
+    "even_methods.inc": "2b38d728b2af897ff06e336b8926daab0ff90c6ecc8f48bd2e4cdda9da1c78e0",
+    "exact.cpp": "fb732b0dc9ab96cdcff087886678bf96ce275854f8f03562e7c31f39883771cd"
+  },
+  "source_sha256": {
+    "common.hpp": "f9aba2086255b1f34b8f30744859c73dd7643aa6608dd9a92de7ba970d53bd0f",
+    "even_methods.inc": "8f902a0e4ffb93cf56201362be2946127a111ab278e5c702fcfb2642fbc157bb",
+    "exact.cpp": "a431975559c44e2b8a7dce89040a30b5c23746c8e4ce21e347e69fc5fa627507",
+    "symmetry.hpp": "f5ae23debace0458aa0bd4bc6a2ec7950327adc4d44877d2e5406e9f40a71b3a"
+  },
+  "modifications": [
+    "Accept a checked orbit-aligned anchor-site argument and report it in every terminal record.",
+    "Search roots in the suffix while leaving earlier physical coordinates available.",
+    "Verify explicit qubit-permutation generators, including preservation of the anchoring block.",
+    "Use joint-orbit representatives while retaining the original LP root and branch partition."
+  ],
+  "native_options": [
+    "fractional=2",
+    "repair-depth=8",
+    "even-repairs=4"
+  ],
+  "ancestry": "Developed from the author's regular-logical-frames search. The original implementation and historical benchmark sources are archived separately.",
+  "proposed_additions": {
+    "default": true,
+    "native_default": false,
+    "native_option": "proposed-additions=on",
+    "reference": "main_v7, Appendix A.3; benchmarked as dual-child=on in the reproduction archive",
+    "rule": "For A <= sum c_q x_q and c_q <= D, reject adding v if A-c_v > D*(b-1). Parent decisions are retained across descendant branches; sibling exclusions and shard boundaries are preserved."
+  },
+  "storage": {
+    "dimensions": "Input-sized vectors; signed 32-bit coordinate and cutoff representation.",
+    "traversal": "Explicit heap-backed DFS frames with shared pruning scratch.",
+    "memory_budget": "Optional live native vector-capacity budget, checked before allocation.",
+    "failure": "Allocation failures report incomplete execution without exclusion credit."
+  }
+}

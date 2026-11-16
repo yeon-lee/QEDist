@@ -1,0 +1,9 @@
+{
+  "schema": "cssdist.lp.v1",
+  "name": "Independent rectangular constituents (HGP baseline)",
+  "field": 2,
+  "period": 1,
+  "A": [[1,1]],
+  "C": [[1,1,0],[0,1,1]],
+  "provenance": {"role": "Synthetic asymmetric baseline; d_X=3 and d_Z=2 by direct enumeration."}
+}

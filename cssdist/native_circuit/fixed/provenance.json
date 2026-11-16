@@ -1,0 +1,35 @@
+{
+  "profile": "circuit_direct_v1",
+  "created": "2026-10-10",
+  "status": "release engine with bundled correctness and audit tests",
+  "base_profile": "css",
+  "ancestry": "Adapts the CSS search to detector and observable parity with dynamic sparse storage.",
+  "base_source_sha256": {
+    "common.hpp": "d89eb574db637fcc428b491dccd44f4ba2061ca578b3ea077f73e53311b606ca",
+    "even_methods.inc": "2b38d728b2af897ff06e336b8926daab0ff90c6ecc8f48bd2e4cdda9da1c78e0",
+    "exact.cpp": "fb732b0dc9ab96cdcff087886678bf96ce275854f8f03562e7c31f39883771cd"
+  },
+  "source_sha256": {
+    "common.hpp": "e2fe6046b8f6d907cf4e8b0f15f358a231f46520237f7f94704221c811208960",
+    "exact.cpp": "fbc6163168c247332e7bae2f2bf99d2b1fa6d4aa432bd3bd9b4934ec0b788249"
+  },
+  "changes": [
+    "Direct detector and observable parity; no stabilizer-span membership or dense neutral kernel.",
+    "Verified optional neutral relations preserve detector and observable parity.",
+    "Dynamic row-local availability masks; no 64-neighbor detector cap or 8192-mechanism cap.",
+    "All coordinate roots, no assumed cyclic or temporal symmetry.",
+    "Per-depth workspaces retain ordered branching, packing, integer weighted parity and bounded even-row repair.",
+    "Explicit weighted/neutral switches, source-bound JSON execution counters."
+  ],
+  "defaults": {
+    "weighted": "on",
+    "neutral": "on",
+    "even-repairs": 4,
+    "repair-depth": 8,
+    "root_begin": 0,
+    "root_end": "n"
+  },
+  "scope": "Minimum count of independent binary unit-cost mechanisms with De=0 and Oe!=0. Physical noise equivalence belongs to the model adapter.",
+  "evidence_kind": "Reproducible source-bound exhaustive execution records, not independent full search-tree proof objects.",
+  "validation": "python -m unittest discover -s tests -p 'test*circuit*.py' -v"
+}

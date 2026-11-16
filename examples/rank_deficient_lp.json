@@ -1,0 +1,8 @@
+{
+  "schema": "cssdist.lp.v1",
+  "name": "Rank-deficient binary LP with period 3",
+  "field": 2,
+  "period": 3,
+  "A": [[1,1],[1,1]],
+  "provenance": {"role": "Synthetic arbitrary-rank test; no invertible full constituent pivot."}
+}

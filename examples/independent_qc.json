@@ -1,0 +1,9 @@
+{
+  "schema": "cssdist.lp.v1",
+  "name": "Independent polynomial constituents with period 5",
+  "field": 2,
+  "period": 5,
+  "A": [[1, [[0,1],[1,1],[3,1]]]],
+  "C": [[1, [[2,1]], [[0,1],[2,1],[4,1]]], [[[1,1]], [[0,1],[1,1],[2,1]], 1]],
+  "provenance": {"role": "Synthetic nontrivial cyclic LP with differently sized independent constituents; no assumed sector exchange."}
+}

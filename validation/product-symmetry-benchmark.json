@@ -1,0 +1,935 @@
+{
+  "build": {
+    "executable_sha256": "404803f67e5350681151e7e56517474fd613596c6f52c3cc44ec3b0c71dbc5a6",
+    "identity": {
+      "compiler": "/usr/bin/c++",
+      "compiler_version": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin",
+      "flags": [
+        "-O3",
+        "-std=c++17"
+      ],
+      "source_sha256": {
+        "common.hpp": "d89eb574db637fcc428b491dccd44f4ba2061ca578b3ea077f73e53311b606ca",
+        "even_methods.inc": "2b38d728b2af897ff06e336b8926daab0ff90c6ecc8f48bd2e4cdda9da1c78e0",
+        "exact.cpp": "a89e0b8652a5a1dae91d40dc1df317f1067460a0302cfe2f26dff38083cbf563",
+        "symmetry.hpp": "6077b730861a2a751cc35b66449c8d34adb67715d249321bf61384140f635f65"
+      }
+    }
+  },
+  "cases": [
+    {
+      "cutoff": 11,
+      "environment": {
+        "machine": "arm64",
+        "processor": "arm",
+        "python": "3.12.4",
+        "system": "Darwin"
+      },
+      "input": "examples/symmetry/bb144.json",
+      "k": 12,
+      "medians": {
+        "cyclic": {
+          "campaign_seconds": 0.12271350005175918,
+          "native_seconds": 0.00272567,
+          "nodes": 11700,
+          "process_seconds": 0.07507158303633332
+        },
+        "diagonal": {
+          "campaign_seconds": 0.11565154092386365,
+          "native_seconds": 0.00272962,
+          "nodes": 11700,
+          "process_seconds": 0.07085150002967566
+        },
+        "product": {
+          "campaign_seconds": 0.1171254999935627,
+          "native_seconds": 0.000709083,
+          "nodes": 2636,
+          "process_seconds": 0.06530720798764378
+        }
+      },
+      "n": 144,
+      "name": "bb144",
+      "runs": {
+        "cyclic": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.11932375002652407,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00272567,
+            "nodes": 11700,
+            "process_seconds": 0.07716595800593495,
+            "repetition": 0,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.12695475004147738,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00317917,
+            "nodes": 11700,
+            "process_seconds": 0.08251683402340859,
+            "repetition": 1,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.12537124997470528,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00288108,
+            "nodes": 11700,
+            "process_seconds": 0.07507158303633332,
+            "repetition": 2,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.11536716704722494,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00249517,
+            "nodes": 11700,
+            "process_seconds": 0.06251970899756998,
+            "repetition": 3,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.12271350005175918,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00265046,
+            "nodes": 11700,
+            "process_seconds": 0.07330829103011638,
+            "repetition": 4,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          }
+        ],
+        "diagonal": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.11332624999340624,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00287642,
+            "nodes": 11700,
+            "process_seconds": 0.07085150002967566,
+            "repetition": 0,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.10383095894940197,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00266796,
+            "nodes": 11700,
+            "process_seconds": 0.06024599994998425,
+            "repetition": 1,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.11565154092386365,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00272962,
+            "nodes": 11700,
+            "process_seconds": 0.06682633399032056,
+            "repetition": 2,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.12685533298645169,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00271579,
+            "nodes": 11700,
+            "process_seconds": 0.07717470801435411,
+            "repetition": 3,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.13390833407174796,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.00289079,
+            "nodes": 11700,
+            "process_seconds": 0.08228262502234429,
+            "repetition": 4,
+            "roots_per_sector": 12,
+            "status": "EXACT_DISTANCE"
+          }
+        ],
+        "product": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.10452333407010883,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.000709083,
+            "nodes": 2636,
+            "process_seconds": 0.0602238749852404,
+            "repetition": 0,
+            "roots_per_sector": 2,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.10405616695061326,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.000652584,
+            "nodes": 2636,
+            "process_seconds": 0.0593875830527395,
+            "repetition": 1,
+            "roots_per_sector": 2,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.1316693329717964,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.000771541,
+            "nodes": 2636,
+            "process_seconds": 0.0810967079596594,
+            "repetition": 2,
+            "roots_per_sector": 2,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.1171254999935627,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.000621167,
+            "nodes": 2636,
+            "process_seconds": 0.06530720798764378,
+            "repetition": 3,
+            "roots_per_sector": 2,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              12,
+              12
+            ],
+            "campaign_seconds": 0.12356824998278171,
+            "input_sha256": {
+              "Z": "97f2659a0ff3d56a5036dc835013e2f0e87e8b8d5685b11bc158c350ee3008b4"
+            },
+            "native_seconds": 0.000717209,
+            "nodes": 2636,
+            "process_seconds": 0.07155912497546524,
+            "repetition": 4,
+            "roots_per_sector": 2,
+            "status": "EXACT_DISTANCE"
+          }
+        ]
+      }
+    },
+    {
+      "cutoff": 16,
+      "environment": {
+        "machine": "arm64",
+        "processor": "arm",
+        "python": "3.12.4",
+        "system": "Darwin"
+      },
+      "input": "examples/symmetry/pp512.json",
+      "k": 128,
+      "medians": {
+        "cyclic": {
+          "campaign_seconds": 17.004701708909124,
+          "native_seconds": 16.8219,
+          "nodes": 24664499,
+          "process_seconds": 16.875072958995588
+        },
+        "diagonal": {
+          "campaign_seconds": 19.779113541939296,
+          "native_seconds": 19.5731,
+          "nodes": 28801415,
+          "process_seconds": 19.6500770408893
+        },
+        "product": {
+          "campaign_seconds": 10.074356750003062,
+          "native_seconds": 9.83681,
+          "nodes": 14458059,
+          "process_seconds": 9.929003792000003
+        }
+      },
+      "n": 512,
+      "name": "pp512",
+      "runs": {
+        "cyclic": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 17.132193083059974,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 16.9171,
+            "nodes": 24664499,
+            "process_seconds": 16.99369466700591,
+            "repetition": 0,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 16.97517812496517,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 16.7758,
+            "nodes": 24664499,
+            "process_seconds": 16.84667358302977,
+            "repetition": 1,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 17.004701708909124,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 16.8219,
+            "nodes": 24664499,
+            "process_seconds": 16.875072958995588,
+            "repetition": 2,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 16.96272945799865,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 16.7696,
+            "nodes": 24664499,
+            "process_seconds": 16.83356062497478,
+            "repetition": 3,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 17.361037209047936,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 17.1632,
+            "nodes": 24664499,
+            "process_seconds": 17.22543674998451,
+            "repetition": 4,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          }
+        ],
+        "diagonal": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 19.91716004104819,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 19.7325,
+            "nodes": 28801415,
+            "process_seconds": 19.78705191705376,
+            "repetition": 0,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 19.982041958021,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 19.774,
+            "nodes": 28801415,
+            "process_seconds": 19.852007457986474,
+            "repetition": 1,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 19.779113541939296,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 19.5731,
+            "nodes": 28801415,
+            "process_seconds": 19.6500770408893,
+            "repetition": 2,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 19.717720333021134,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 19.5239,
+            "nodes": 28801415,
+            "process_seconds": 19.58824916696176,
+            "repetition": 3,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 19.76290595799219,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 19.5576,
+            "nodes": 28801415,
+            "process_seconds": 19.621701541007496,
+            "repetition": 4,
+            "roots_per_sector": 32,
+            "status": "CERTIFIED_INTERVAL"
+          }
+        ],
+        "product": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 10.043358167051338,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 9.80027,
+            "nodes": 14458059,
+            "process_seconds": 9.897334125009365,
+            "repetition": 0,
+            "roots_per_sector": 16,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 10.074356750003062,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 9.83681,
+            "nodes": 14458059,
+            "process_seconds": 9.929003792000003,
+            "repetition": 1,
+            "roots_per_sector": 16,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 10.02125391701702,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 9.81386,
+            "nodes": 14458059,
+            "process_seconds": 9.875501416972838,
+            "repetition": 2,
+            "roots_per_sector": 16,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 10.253681208007038,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 10.0312,
+            "nodes": 14458059,
+            "process_seconds": 10.101035499945283,
+            "repetition": 3,
+            "roots_per_sector": 16,
+            "status": "CERTIFIED_INTERVAL"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              17,
+              19
+            ],
+            "campaign_seconds": 10.596964416094124,
+            "input_sha256": {
+              "Z": "9b6a3e1ac327f467124f2450b1f2494de49a775e79d2633580f30361a609f3a2"
+            },
+            "native_seconds": 10.3809,
+            "nodes": 14458059,
+            "process_seconds": 10.448365583084524,
+            "repetition": 4,
+            "roots_per_sector": 16,
+            "status": "CERTIFIED_INTERVAL"
+          }
+        ]
+      }
+    },
+    {
+      "cutoff": 6,
+      "environment": {
+        "machine": "arm64",
+        "processor": "arm",
+        "python": "3.12.4",
+        "system": "Darwin"
+      },
+      "input": "examples/symmetry/toric3d7.json",
+      "k": 3,
+      "medians": {
+        "cyclic": {
+          "campaign_seconds": 0.40529237501323223,
+          "native_seconds": 0.002016453,
+          "nodes": 28190,
+          "process_seconds": 0.08522145892493427
+        },
+        "diagonal": {
+          "campaign_seconds": 0.407494124956429,
+          "native_seconds": 0.001947875,
+          "nodes": 28190,
+          "process_seconds": 0.08407079195603728
+        },
+        "product": {
+          "campaign_seconds": 0.4318286250345409,
+          "native_seconds": 0.000121875,
+          "nodes": 731,
+          "process_seconds": 0.0906739589991048
+        }
+      },
+      "n": 1029,
+      "name": "toric3d7",
+      "runs": {
+        "cyclic": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.3840309170773253,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.0018835829999999999,
+            "nodes": 28190,
+            "process_seconds": 0.0676726660458371,
+            "repetition": 0,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.4628490830073133,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.002259045,
+            "nodes": 28190,
+            "process_seconds": 0.1383695409167558,
+            "repetition": 1,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.43320079194381833,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.002108713,
+            "nodes": 28190,
+            "process_seconds": 0.11111899896059185,
+            "repetition": 2,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.40529237501323223,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.002016453,
+            "nodes": 28190,
+            "process_seconds": 0.08522145892493427,
+            "repetition": 3,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.40230095898732543,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.0019764179999999998,
+            "nodes": 28190,
+            "process_seconds": 0.08222991705406457,
+            "repetition": 4,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          }
+        ],
+        "diagonal": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.407494124956429,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.0018951229999999999,
+            "nodes": 28190,
+            "process_seconds": 0.08964987506624311,
+            "repetition": 0,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.4247628339799121,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.002009205,
+            "nodes": 28190,
+            "process_seconds": 0.10150512494146824,
+            "repetition": 1,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.3888399589341134,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.001909126,
+            "nodes": 28190,
+            "process_seconds": 0.06944037496577948,
+            "repetition": 2,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.39558929193299264,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.001947875,
+            "nodes": 28190,
+            "process_seconds": 0.07450395787600428,
+            "repetition": 3,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.4120477079413831,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.001956789,
+            "nodes": 28190,
+            "process_seconds": 0.08407079195603728,
+            "repetition": 4,
+            "roots_per_sector": 147,
+            "status": "EXACT_DISTANCE"
+          }
+        ],
+        "product": [
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.43108408397529274,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.000123292,
+            "nodes": 731,
+            "process_seconds": 0.0906739589991048,
+            "repetition": 0,
+            "roots_per_sector": 3,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.46233762498013675,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.00016199999999999998,
+            "nodes": 731,
+            "process_seconds": 0.12180379102937877,
+            "repetition": 1,
+            "roots_per_sector": 3,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.4318286250345409,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.000114084,
+            "nodes": 731,
+            "process_seconds": 0.09251024993136525,
+            "repetition": 2,
+            "roots_per_sector": 3,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.41978245798964053,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.000121875,
+            "nodes": 731,
+            "process_seconds": 0.08231954195071012,
+            "repetition": 3,
+            "roots_per_sector": 3,
+            "status": "EXACT_DISTANCE"
+          },
+          {
+            "all_excluded": true,
+            "bounds": [
+              7,
+              7
+            ],
+            "campaign_seconds": 0.44519158301409334,
+            "input_sha256": {
+              "X": "37846f970067f1fbb9fe3d72ce50c91a07974bcfef2fe7b66ba5807bbe09b595",
+              "Z": "198f5a70414de5545d476f238a3a8a82ab97fbfa6a00211f4bddd365038cce22"
+            },
+            "native_seconds": 0.000113833,
+            "nodes": 731,
+            "process_seconds": 0.0880328748608008,
+            "repetition": 4,
+            "roots_per_sector": 3,
+            "status": "EXACT_DISTANCE"
+          }
+        ]
+      }
+    }
+  ],
+  "measured_date": "2026-11-13",
+  "package_version": "0.1",
+  "processor_model": "Apple M3 Pro",
+  "settings": {
+    "repeats": 5,
+    "seconds_per_shard": 60.0,
+    "shards": 1,
+    "split_weight": 1,
+    "workers": 1
+  },
+  "timing": "Native search excludes input validation. Process time includes native validation. Campaign time includes Python validation, preparation and auditing, with a warm compiler cache."
+}

@@ -1,0 +1,9 @@
+{
+  "schema": "qedist.detector.v1",
+  "n_faults": 3,
+  "detector_rows": [[0, 1], [1, 2]],
+  "observable_rows": [[0]],
+  "neutral_rows": [],
+  "witnesses": [[0, 1, 2]],
+  "metadata": {"description": "Toy three-fault logical chain, with exact fault distance three"}
+}

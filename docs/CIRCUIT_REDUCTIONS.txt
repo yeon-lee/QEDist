@@ -1,0 +1,134 @@
+Exact circuit reductions and local replacement rules
+====================================================
+
+The objective remains min |e| with De=0 and Oe!=0. Each coordinate is one
+unit-cost fault effect, including the complete detector and observable action.
+These transformations do not preserve event probabilities or claim equivalence
+of logical error rates. A physical faulty-location interpretation additionally
+requires the source-noise audit described in CIRCUIT_DISTANCE.txt.
+
+1. A checkable detector-sector reduction
+----------------------------------------
+Choose detector coordinates K, retaining ALL observable coordinates. Let P
+erase the other detector coordinates in a full signature s_j=(D_j,O_j).
+Before reducing anything, require that every P(s_j) is either zero or the
+full signature of an existing source fault supported only on detectors K.
+
+This column-closure test is the decisive condition. A CSS code, a CNOT circuit,
+or a detector-basis annotation alone does not establish it. Missing allowed
+Pauli outcomes, mixed observables, boundaries, or a different schedule can
+cause the test to fail. A failed test produces no equivalent reduced model.
+
+The reduced model has one column for each distinct nonzero retained signature.
+The certificate records the retained detector indices, a source-to-reduced
+map (null for zero), one source representative of every reduced column, and
+source/reduced identities. The checker recomputes the signature relations
+without executing a distance search or trusting the proposal's basis labels.
+
+Why distance is preserved:
+
+  * A full undetected logical fault word projects to the same nonzero Oe
+    with zero detector syndrome. Replace each projected column by its mapped
+    retained fault. Repeated columns cancel, so the fault count cannot grow.
+    Hence d_reduced <= d_full.
+  * Every reduced column has an identical full-source representative, with
+    zero action on all omitted detectors. Lifting a reduced logical fault
+    therefore gives a full-source logical fault at the same weight.
+    Hence d_full <= d_reduced.
+
+The argument preserves every observable bit, not just whether Oe is nonzero.
+It also maps witnesses and neutral rows by parity, not by set union. A neutral
+row that maps to zero is discarded; every retained row is rechecked. Known
+upper bounds can only improve under projection. The maps do not enumerate
+every representative, and a distance result still requires its own completed
+search or witness.
+
+Use a JSON list of zero-based retained detector indices:
+
+  qedist reduce-circuit original.json --keep-detectors keep.json \
+      --output reduced.json --certificate reduction.json
+  qedist audit-circuit-reduction original.json reduced.json reduction.json
+  qedist certify-circuit reduced.json --cutoff 5 --seconds 30 --out reduced-run
+  qedist audit-circuit reduced-run
+
+Alternatively, propose a sector from a Stim circuit with Chromobius detector
+coordinates:
+
+  qedist reduce-circuit original.json --stim memory.stim --basis auto \
+      --output reduced.json --certificate reduction.json
+
+The annotations only propose candidate detector sets; the same full column
+closure check is mandatory. The explicit-index route does not need Stim.
+No reduction is enabled implicitly by import-circuit or certify-circuit.
+Here --basis X/Z names the detector basis, not the Pauli fault component.
+For the saved logical-Z BB experiments, Z detectors retain the relevant
+X-type fault effects. Auto tries both proposals and chooses a valid reduction.
+
+The BB validation data use the logical-Z memory experiment and verify this
+projection directly. Their H/CZ schedules also admit local Hadamard frames
+in which the interactions are CNOTs. The full Pauli channels are closed under
+the corresponding sector projection. These source facts explain the success
+of the test; they are not substitutes for checking it on each actual input.
+
+2. Replacement rules across circuit locations
+--------------------------------------------
+Let a and b be two fault configurations having the same complete signature:
+
+    Da=Db and Oa=Ob.
+
+Their symmetric difference g=a+b is a neutral relation: Dg=Og=0. Every logical
+fault word e having more than half of g selected has a strictly cheaper
+equivalent e+g, since
+
+    |e+g| = |e| + |g| - 2 |supp(e) intersect supp(g)| < |e|.
+
+This applies even when g was found using several neighboring circuit gates.
+The existing native neutral-overlap rule can therefore consume these rows
+without a new search-completeness argument or an assumption that all local
+replacements have been found. An incomplete relation catalogue changes speed,
+not the meaning of a completed exclusion. Pruning protects existence of a
+minimum fault word; it does not enumerate all low-weight fault words.
+
+The experimental generator examines bounded two- and three-gate windows and
+compares their complete propagated signatures. The full detector/observable
+signature is sufficient: it includes every effect relevant to the objective,
+including later measurements. A smaller interface table would need a separate
+argument that its boundary state captures all external effects.
+
+For unit-cost Pauli noise, two nonidentity Paulis at one noisy location do not
+cost two independent locations after composition. The source audits justify
+this minimum-count equivalence for the BB channels. Window generation retains
+location information but the final pruning rows are checked in the same
+validated binary effect model used by every benchmark method.
+
+Longer or more numerous relations are not automatically better: they increase
+initialization, incidence updates, and overlap-test costs. Experiments must
+compare against all available source-local triples and report both runtime
+and nodes. Source-local triples and duplicate effects already absorb many
+elementary CNOT propagation identities.
+
+3. Attribution and benchmark interpretation
+-------------------------------------------
+Basis filtering for circuit-distance calculations appears in Webster, Jacob
+and Higgott, Distance-Finding Algorithms for Quantum Codes and Circuits,
+Section 5.5, Algorithm 12:
+  https://arxiv.org/html/2603.22532v2
+
+Circuit error-equivalence methods also have established precedents, including
+Pryadko, On maximum-likelihood decoding with circuit-level errors:
+  https://arxiv.org/abs/1909.06732
+
+The present addition supplies explicit reduction maps and their checker, then
+tests whether local replacement relations improve QEDist's existing pruning.
+Neither the detector formulation nor Pauli propagation through CNOTs is new.
+
+All methods in the reduced-input comparison receive the same D/O matrices,
+column order, logical observables, cutoff, and known witness. Optional neutral
+rows differ only between benchmark configurations. Solvers using only matrices
+receive the D/O matrices. Circuit conversion, certified projection and relation
+generation are measured separately from fixed-input decision timing. The
+original full-model comparison remains preserved as a separate experiment.
+
+The optional Python helper cssdist.circuit_windows.window_relations takes explicit
+location-to-fault maps and selected gate windows. It proposes verified neutral
+relations. Circuit import does not infer these maps automatically.

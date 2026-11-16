@@ -1,0 +1,105 @@
+{
+  "A": [
+    [
+      [
+        [
+          8,
+          1
+        ]
+      ],
+      [
+        [
+          6,
+          1
+        ]
+      ],
+      [
+        [
+          2,
+          1
+        ],
+        [
+          7,
+          1
+        ]
+      ],
+      [
+        [
+          6,
+          1
+        ],
+        [
+          12,
+          1
+        ]
+      ]
+    ],
+    [
+      [
+        [
+          1,
+          1
+        ],
+        [
+          12,
+          1
+        ]
+      ],
+      [
+        [
+          2,
+          1
+        ],
+        [
+          14,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          13,
+          1
+        ]
+      ]
+    ]
+  ],
+  "check_basis": "raw",
+  "field": 2,
+  "name": "lp-f2-320-64-10",
+  "period": 16,
+  "provenance": {
+    "attribution": null,
+    "catalogue_sha256": "206d0b8eb70c5bc73c9748ff75a047c9b161a441a37953630659e0b6b9dfdf9d",
+    "commit": "04ad4795ad15cb89ee47b7868ff925c30b2fc731",
+    "note": "Input and physical witnesses only; prior lower bounds are not imported.",
+    "original_code_sha256": "9fb9e07629fa6f883fbc3960f0b62894c6e2b682dcb67fdde2a4da8ffa8750e1",
+    "original_path": "codes/lp-binary/lp-f2-320-64-10/code.json",
+    "paper": "https://arxiv.org/abs/2610.06820",
+    "reported_distance": 10,
+    "repository": "https://github.com/yeon-lee/public-regular-logical-frames"
+  },
+  "schema": "cssdist.lp.v1",
+  "witnesses": {
+    "X": [],
+    "Z": [
+      [
+        18,
+        22,
+        23,
+        24,
+        27,
+        80,
+        148,
+        152,
+        153,
+        156
+      ]
+    ]
+  }
+}

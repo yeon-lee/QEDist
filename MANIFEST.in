@@ -1,0 +1,16 @@
+include README.md LICENSE NOTICE.md CITATION.cff
+recursive-include docs *.md *.txt
+recursive-include examples *.json *.stim
+recursive-include tests *.py
+recursive-include tools *.py *.md
+prune evidence
+prune reproduce
+prune validation
+include validation/product-symmetry-benchmark.json
+prune research
+prune runs
+prune bundles
+prune build
+prune dist
+prune .venv
+global-exclude __pycache__ *.py[cod] .DS_Store
