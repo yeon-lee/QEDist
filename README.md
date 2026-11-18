@@ -2,6 +2,26 @@
 
 QEDist certifies the minimum weight of a logical operator from stabilizer checks, including general mixed-Pauli generators and binary CSS matrices. It also certifies fault distance in detector/observable models. A completed exhaustive search gives a lower bound, a checked logical witness gives an upper bound, and matching bounds give the exact distance.
 
+## How to cite
+
+If you use QEDist in your research, please cite:
+
+Jong Yeon Lee, *QEDist: Practical Exact Distance Certification for Stabilizer Codes*, [arXiv:2611.21709](https://arxiv.org/abs/2611.21709) (2026).
+
+```bibtex
+@misc{lee2026qedist,
+  title={{QEDist}: Practical Exact Distance Certification for Stabilizer Codes},
+  author={Jong Yeon Lee},
+  year={2026},
+  eprint={2611.21709},
+  archivePrefix={arXiv},
+  primaryClass={quant-ph},
+  url={https://arxiv.org/abs/2611.21709},
+}
+```
+
+Please also report the QEDist version used for your computations.
+
 ## Development history
 
 The prototype underlying QEDist was developed in late July 2026. It was subsequently used in the following two papers.
